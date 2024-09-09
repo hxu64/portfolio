@@ -2,11 +2,11 @@
 title: Max Xu's Portfolio
 description: Max Xu's Portfolio
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://hxu.github.io/" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
+url: "https://hxu.github.io/" # the base hostname & protocol for your site
 
 # User settings
 username: Max Xu
-user_description: I’m a first-year computer science student at the University of Toronto, while spending the past 5 years developing, managing, and leading software projects. I'm all about solving problems and making technology reach its greatest potential. Below you will find examples of my work.
+user_description: I’m a first-year computer science student at the University of Toronto, who spent the past 5 years developing, managing, and leading software projects. I'm all about solving problems and putting technology to use. Below you will find examples of my work.
 user_title: Software Developer
 email: 
 twitter_username: n/a
