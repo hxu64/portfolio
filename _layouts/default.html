@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
   {% include head.html %}
   <body>
@@ -6,6 +7,11 @@
       <section id="about">
         {% include about.html %}
       </section>
+      {% if page.carousels %}
+            {% for carousel in page.carousels %}
+                {% include carousel.html number=forloop.index %}
+            {% endfor %}
+        {% endif %}
       <section id="projects">
         {% include projects.html %}
       </section>

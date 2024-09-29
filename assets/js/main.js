@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
             number: {
                 value: 30,
                 density: {
-                    enable: !0,
+                    enable: true,
                     value_area: 800
                 }
             },
@@ -28,42 +28,42 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             },
             opacity: {
-                value: .5,
-                random: !1,
+                value: 0.5,
+                random: true,  // Enable random opacity for twinkling
                 anim: {
-                    enable: !1,
-                    speed: 1,
-                    opacity_min: .1,
-                    sync: !1
+                    enable: true,  // Enable animation
+                    speed: 1,      // Speed of the opacity change
+                    opacity_min: 0.1,
+                    sync: false    // No sync for a more natural twinkle
                 }
             },
             size: {
                 value: 3,
-                random: !0,
+                random: true,  // Enable random size for twinkling effect
                 anim: {
-                    enable: !1,
-                    speed: 19.18081918081918,
-                    size_min: .1,
-                    sync: !1
+                    enable: true,  // Enable size animation
+                    speed: 19.18,  // Speed of the size change
+                    size_min: 1,   // Minimum size for twinkling
+                    sync: false    // No sync for a more natural twinkle
                 }
             },
             line_linked: {
-                enable: !0,
+                enable: true,
                 distance: 150,
                 color: "#ffffff",
-                opacity: .4,
+                opacity: 0.4,
                 width: 1
             },
             move: {
-                enable: !0,
+                enable: true,
                 speed: 4,
                 direction: "none",
-                random: !0,
-                straight: !1,
+                random: true,
+                straight: false,
                 out_mode: "out",
-                bounce: !1,
+                bounce: false,
                 attract: {
-                    enable: !1,
+                    enable: false,
                     rotateX: 600,
                     rotateY: 1200
                 }
@@ -74,14 +74,14 @@ document.addEventListener("DOMContentLoaded", function() {
             detect_on: "canvas",
             events: {
                 onhover: {
-                    enable: !1,
+                    enable: false,
                     mode: "grab"
                 },
                 onclick: {
-                    enable: !0,
+                    enable: true,
                     mode: "push"
                 },
-                resize: !0
+                resize: true
             },
             modes: {
                 grab: {
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 },
                 repulse: {
                     distance: 200,
-                    duration: .4
+                    duration: 0.4
                 },
                 push: {
                     particles_nb: 4
@@ -109,6 +109,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             }
         },
-        retina_detect: !0
-    })
-}, !1);
+        retina_detect: true
+    });
+}, false);

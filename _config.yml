@@ -18,3 +18,12 @@ gplus_username: n/a
 #   id: ""
 
 exclude: ['package.json', 'src' , 'node_modules']
+
+---
+layout: default
+title: Home Page
+carousels:
+  - images:
+      - image: /src/img/lua_transparent.png
+      - image: /src/img/fjudge_ui.jpg
+      - image: /src/img/yt_logo.png

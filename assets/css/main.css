@@ -5,13 +5,15 @@ html{
     -ms-text-size-adjust:100%;
     -webkit-text-size-adjust:100%
 }
-body{
-    margin:0
+body {
+    background-color: #040413;
+    color: white;
 }
 article,aside,details,figcaption,figure,footer,header,main,menu,nav,section{
     display:block
 }
 h1{
+    color: white;
     font-size:2em;
     margin:.67em 0
 }
@@ -3328,17 +3330,18 @@ body{
     padding:0;
     font-size:100%;
     line-height:1.5;
-    color:#555;
+
+    color: white;
     font-family:'Montserrat',sans-serif
 }
 article,aside,figcaption,figure,footer,header,nav,section{
     display:block
 }
 h1,h2,h3,h4,stong{
+    color: white;
     margin-top:1em;
     padding-top:1em;
     line-height:1.25;
-    color:#333
 }
 h1{
     font-size:2.5rem
@@ -3372,7 +3375,9 @@ sub,sup{
     min-height:100vh;
     background-repeat:no-repeat;
     background-size:cover;
-    background-attachment:fixed
+    background-attachment:fixed;
+    z-index: 2;
+    pointer-events: none;
 }
 #particles-js .particles-js-canvas-el{
     width:100%!important;
@@ -3395,6 +3400,11 @@ sub,sup{
     line-height:1;
     color:#fff
 }
+
+.site-description {
+    font-family: 'IBM Plex Mono', monospace; /* Use IBM Plex Mono */
+}
+  
 @media only screen and (min-width:550px){
     .header .site-title{
         margin:0;
@@ -3430,7 +3440,8 @@ sub,sup{
 .header-icons{
     display:flex;
     justify-content:center;
-    text-align:center
+    text-align:center;
+    z-index: 10
 }
 .down,.header-icons .icon{
     color:#fff;
@@ -3438,13 +3449,13 @@ sub,sup{
 }
 .header-icons .icon{
     height:20px;
-    padding:10px;
+    padding:7px;
     border-radius:50%;
     border:2px solid #fff;
     transition:all .7s;
     width:20px;
     font-size:20px;
-    margin:5px
+    margin:7px
 }
 .header-icons .icon:active,.header-icons .icon:hover{
     color:#1a222c;
@@ -3452,9 +3463,9 @@ sub,sup{
 }
 @media only screen and (min-width:550px){
     .header-icons .icon{
-        width:35px;
-        height:35px;
-        font-size:35px
+        width: 30px;
+        height: 30px;
+        font-size: 30px
     }
 }
 .down{
@@ -3478,7 +3489,8 @@ sub,sup{
     height:100px;
     fill:#fff;
     -webkit-animation:pulse 1.3s infinite;
-    animation:pulse 1.3s infinite
+    animation:pulse 1.3s infinite;
+    z-index: 5;
 }
 .down .icon:active,.down .icon:hover,.footer a:active,.footer a:hover{
     color:#4b5664
@@ -3605,4 +3617,58 @@ sub,sup{
     text-decoration:none;
     margin:0;
     color:#fff
+}
+
+.parallax {
+    position: relative;
+    height: 100vh; /* Full height of the viewport */
+    background-attachment: fixed; /* Parallax effect */
+    background-position: center; /* Center the background */
+    background-repeat: no-repeat; /* Prevent repeating the image */
+    background-size: cover; /* Cover the entire div */
+    transform: translate(var(--offsetx), var(--offsety));
+    will-change: transform;
+    overflow: hidden; /* Ensure content fits within the div */
+}
+
+.content-image {
+    display: none; /* Hide the image, as we use it as a background */
+    position: relative; /* Image is relative to its container */
+    z-index: 0; /* Lower z-index so it stays behind the particles */
+    width: 100%; /* Ensure it scales correctly */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Adjust as needed */
+    overflow: hidden;
+}
+
+.fade-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire container */
+}
+
+.image-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 15%; /* Set to 15% for the fade height */
+    background: linear-gradient(to bottom, rgba(4, 4, 19, 0) 0%, rgba(4, 4, 19, 1) 100%); /* Fade from transparent to #040413 */
+}
+
+* {
+    color: white; /* Set all text to white */
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2; /* Ensure canvas is above image */
 }

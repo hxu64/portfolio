@@ -1,19 +1,71 @@
-<div id="particles-js">
-  <div class="header">
-      <h1>
-        <span class="site-title">{{site.username}}</span>
-        <span class="site-description">{{site.user_title}}</span>
-      </h1>
-      <div class="header-icons">
-        <a aria-label="Send email" href="#"><i class="icon fa fa-envelope"></i></a>
-        <a aria-label="My Twitter" target="_blank" href="#"><i class="icon fa fa-twitter" aria-hidden="true"></i></a>
-        <a aria-label="My Google Plus" target="_blank" href="#"><i class="icon fa fa-google-plus" aria-hidden="true"></i></a>
-        <a aria-label="My Github" target="_blank" href="#"><i class="icon fa fa-github-alt" aria-hidden="true"></i></a>
-      </div>
-      <div class="header-links">
-        <a class="link" href="#about" data-scroll>About Me</a>
-        <a class="link" href="#projects" data-scroll>Projects</a>
-      </div>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<div class="header">
+  <h1>
+    <span class="site-title">{{site.username}}</span>
+    <span class="site-description">{{site.user_title}}</span>
+    <script>
+      const strings = ["Content Creator", "Software Developer", "Data Engineer", "Web Developer"];
+      const scrambleDuration = 1000; // Scramble effect lasts 1 second
+      const changeDelay = 5000; // Change text every 5 seconds
+      const scrambleSpeed = 50; // How fast the scrambling happens
+  
+      const siteDescription = document.querySelector('.site-description');
+  
+      let currentIndex = 0;
+  
+      function scrambleText(element, newText, duration) {
+        const oldText = element.textContent;
+        const maxLength = Math.max(oldText.length, newText.length);
+        const startTime = Date.now();
+  
+        const scrambleInterval = setInterval(() => {
+          let elapsed = Date.now() - startTime;
+          let scrambledText = '';
+  
+          for (let i = 0; i < maxLength; i++) {
+            const oldChar = oldText[i] || '';
+            const newChar = newText[i] || '';
+            const randomChar = Math.random() > elapsed / duration ? oldChar : newChar;
+  
+            scrambledText += randomChar !== '' ? randomChar : ' ';
+          }
+  
+          element.textContent = scrambledText;
+  
+          // Stop scrambling after the duration (1 second in this case)
+          if (elapsed >= duration) {
+            element.textContent = newText;
+            clearInterval(scrambleInterval);
+          }
+        }, scrambleSpeed);
+      }
+  
+      function changeText() {
+        currentIndex = (currentIndex + 1) % strings.length;
+        scrambleText(siteDescription, strings[currentIndex], scrambleDuration);
+      }
+  
+      // Start changing text every 5 seconds
+      setInterval(changeText, changeDelay);
+  
+    </script>
+  </h1>
+  <div class="header-icons">
+    <a aria-label="Send email" href="#"><i class="icon fa fa-envelope"></i></a>
+    <a aria-label="My Twitter" target="_blank" href="#"><i class="icon fa fa-twitter" aria-hidden="true"></i></a>
+    <a aria-label="My Google Plus" target="_blank" href="#"><i class="icon fa fa-google-plus" aria-hidden="true"></i></a>
+    <a aria-label="My Github" target="_blank" href="#"><i class="icon fa fa-github-alt" aria-hidden="true"></i></a>
   </div>
-  <a class="down" href="#about" data-scroll><i class="icon fa fa-chevron-down" aria-hidden="true"></i></a>
+  <div class="header-links">
+    <a class="link" href="#about" data-scroll>About Me</a>
+    <a class="link" href="#projects" data-scroll>Projects</a>
+  </div>
+  
+</div>
+<a class="down" href="#about" data-scroll><i class="icon fa fa-chevron-down" aria-hidden="true"></i></a>
+<div id="particles-js">
+  <div class="image-container">
+    <img src="{{ "/assets/img/moon.jpg" | prepend: site.baseurl }}" class="fade-image" />
+  </div>
 </div>
